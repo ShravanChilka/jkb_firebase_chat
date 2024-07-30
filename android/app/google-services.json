@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "466492016943",
+    "project_id": "chat-app-b9b34",
+    "storage_bucket": "chat-app-b9b34.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466492016943:android:0bf6bbeca88dc281b9b9da",
+        "android_client_info": {
+          "package_name": "com.shravan.jkb_firebase_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCStMGpRkKXqNe61A5jAe8JZQeJC0fZ8Mk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
