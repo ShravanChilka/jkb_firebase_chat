@@ -34,8 +34,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     Emitter<AuthState> emit,
   ) {
     final response = _authService.isAuthenticated;
-    emit.forEach(response, onData: (isAuthenticated) {
-      return state.copyWith(isAuthenticated: isAuthenticated);
+    return emit.forEach(response, onData: (isAuthenticated) {
+      return state.copyWith(
+        isAuthenticated: isAuthenticated,
+        currentUser: _authService.currentUser,
+      );
     });
   }
 
@@ -68,7 +71,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
         showSnackbar('Account created!');
         emit(
-          state.copyWith(isLoading: false, isAuthenticated: true),
+          state.copyWith(
+            isLoading: false,
+            isAuthenticated: true,
+            currentUser: _authService.currentUser,
+          ),
         );
       },
     );
@@ -93,7 +100,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       (r) {
         showSnackbar('Login successful!');
         emit(
-          state.copyWith(isLoading: false, isAuthenticated: true),
+          state.copyWith(
+            isLoading: false,
+            isAuthenticated: true,
+            currentUser: _authService.currentUser,
+          ),
         );
       },
     );

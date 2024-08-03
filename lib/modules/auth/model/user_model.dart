@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 class UserModel {
   const UserModel({
     required this.id,
@@ -22,6 +24,14 @@ class UserModel {
       id: map['id'] as String,
       name: map['name'] != null ? map['name'] as String : null,
       email: map['email'] != null ? map['email'] as String : null,
+    );
+  }
+
+  factory UserModel.fromFirebaseUser(User user) {
+    return UserModel(
+      id: user.uid,
+      name: user.displayName,
+      email: user.email,
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_firebase_chat/modules/auth/bloc/auth_bloc.dart';
+import 'package:jkb_firebase_chat/modules/search_user/view/search_user_delegate.dart';
+import 'package:jkb_firebase_chat/modules/settings/view/settings_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,16 +10,44 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: SearchUserDelegate(),
+              );
+            },
+            icon: const Icon(Icons.search),
+          ),
+          PopupMenuButton(
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: const Text('Settings'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const SettingsScreen(),
+                    ),
+                  );
+                },
+              )
+            ],
+          ),
+        ],
       ),
-      body: Center(
-        child: FilledButton(
-          onPressed: () {
-            context.read<AuthBloc>().add(
-                  const AuthEventLogOut(),
-                );
-          },
-          child: const Text('LogOut'),
-        ),
+      body: Container(),
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.chat),
+            label: 'Chats',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.update_sharp),
+            label: 'Status',
+          ),
+        ],
       ),
     );
   }

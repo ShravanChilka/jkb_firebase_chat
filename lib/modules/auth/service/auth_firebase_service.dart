@@ -1,11 +1,17 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:jkb_firebase_chat/modules/auth/model/user_model.dart';
 
 class AuthFirebaseService {
   final _client = FirebaseAuth.instance;
 
   Stream<bool> get isAuthenticated {
     return _client.authStateChanges().map((user) => user != null);
+  }
+
+  UserModel? get currentUser {
+    if (_client.currentUser == null) return null;
+    return UserModel.fromFirebaseUser(_client.currentUser!);
   }
 
   Future<Either<String, UserCredential>> createAccount({
