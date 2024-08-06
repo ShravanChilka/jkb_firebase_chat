@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jkb_firebase_chat/modules/chat/bloc/chat_bloc.dart';
 
+import 'widgets/messages_list_view.dart';
+import 'widgets/send_message_text_field.dart';
+
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
@@ -10,7 +13,13 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  final messageController = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(
+      () => context.read<ChatBloc>().add(const ChatEventInitialize()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,43 +29,20 @@ class _ChatScreenState extends State<ChatScreen> {
           appBar: AppBar(
             title: Text(state.receiver.email ?? '-'),
           ),
-          body: Column(
-            children: [
-              Expanded(
-                child: Container(
-                  color: Colors.blueGrey,
+          body: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: MessagesListView(),
                 ),
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: messageController,
-                      decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.all(16),
-                        hintText: 'Type your message...',
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: IconButton.filledTonal(
-                      onPressed: () {},
-                      icon: const Icon(Icons.send),
-                    ),
-                  )
-                ],
-              ),
-            ],
+                SendMessageTextField(),
+              ],
+            ),
           ),
         );
       },
     );
-  }
-
-  @override
-  void dispose() {
-    messageController.dispose();
-    super.dispose();
   }
 }
