@@ -38,15 +38,15 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       sender: sender,
       receiver: receiver,
     );
-    final messages = await _service.getMessages(
+    final messages = _service.getMessages(
       chatId: _chatId,
     );
-    emit(
-      state.copyWith(
+    return emit.forEach(messages, onData: (data) {
+      return state.copyWith(
         isLoading: false,
-        messages: messages,
-      ),
-    );
+        messages: data,
+      );
+    });
   }
 
   FutureOr<void> _onChatEventSendMessage(

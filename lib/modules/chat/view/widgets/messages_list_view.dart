@@ -12,6 +12,7 @@ class MessagesListView extends StatelessWidget {
       builder: (context, state) {
         final messages = state.messages;
         return ListView.separated(
+          reverse: true,
           separatorBuilder: (context, index) => const SizedBox(height: 10),
           itemCount: messages.length,
           itemBuilder: (context, index) {

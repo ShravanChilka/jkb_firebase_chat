@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:jkb_firebase_chat/modules/search_user/view/search_user_delegate.dart';
 import 'package:jkb_firebase_chat/modules/settings/view/settings_screen.dart';
 
+import '../../recent_chats/view/recent_chats_page.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -36,7 +38,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(),
+      body: const RecentChatsPage(),
       bottomNavigationBar: NavigationBar(
         destinations: const [
           NavigationDestination(
