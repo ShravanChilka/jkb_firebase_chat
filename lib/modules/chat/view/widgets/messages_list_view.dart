@@ -11,15 +11,19 @@ class MessagesListView extends StatelessWidget {
     return BlocBuilder<ChatBloc, ChatState>(
       builder: (context, state) {
         final messages = state.messages;
-        return ListView.separated(
-          reverse: true,
-          separatorBuilder: (context, index) => const SizedBox(height: 10),
-          itemCount: messages.length,
-          itemBuilder: (context, index) {
-            return MessageListTile(
-              messageModel: messages[index],
-            );
-          },
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ListView.separated(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            reverse: true,
+            separatorBuilder: (context, index) => const SizedBox(height: 10),
+            itemCount: messages.length,
+            itemBuilder: (context, index) {
+              return MessageListTile(
+                messageModel: messages[index],
+              );
+            },
+          ),
         );
       },
     );

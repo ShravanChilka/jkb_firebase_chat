@@ -11,7 +11,7 @@ class RecentChatsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FirestoreListView(
+    return FirestoreListView.separated(
       query: context.read<RecentChatsBloc>().getRecentChatQuery(),
       itemBuilder: (context, doc) {
         final recentChat = doc.data();
@@ -46,13 +46,14 @@ class RecentChatsScreen extends StatelessWidget {
                   );
                 },
                 title: Text(recentChatMessage.user.email ?? '-'),
-                subtitle: Text(recentChatMessage.message.text),
+                subtitle: Text(recentChatMessage.text),
               );
             }
             return const SizedBox.shrink();
           },
         );
       },
+      separatorBuilder: (_, __) => const Divider(height: 1),
     );
   }
 

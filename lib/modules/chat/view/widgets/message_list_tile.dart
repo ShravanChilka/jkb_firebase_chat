@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:jkb_firebase_chat/modules/chat/bloc/chat_bloc.dart';
 import 'package:jkb_firebase_chat/modules/chat/model/message_model.dart';
+import 'package:jkb_firebase_chat/shared/image_view_screen.dart';
 
 class MessageListTile extends StatelessWidget {
   const MessageListTile({
@@ -42,13 +43,9 @@ class MessageListTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                messageModel.text,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: isSentByYou
-                          ? Theme.of(context).colorScheme.onPrimaryContainer
-                          : Theme.of(context).colorScheme.onSecondaryContainer,
-                    ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: _getMessageBody(messageModel, context, isSentByYou),
               ),
               Text(
                 DateFormat('hh:mm aa').format(messageModel.sentAt),
@@ -59,5 +56,43 @@ class MessageListTile extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget _getMessageBody(
+    MessageModel messageModel,
+    BuildContext context,
+    bool isSentByYou,
+  ) {
+    switch (messageModel.type) {
+      case MessageType.text:
+        return Text(
+          messageModel.text,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: isSentByYou
+                    ? Theme.of(context).colorScheme.onPrimaryContainer
+                    : Theme.of(context).colorScheme.onSecondaryContainer,
+              ),
+        );
+      case MessageType.image:
+        return GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => ImageViewScreen(
+                imageUrl: messageModel.text,
+              ),
+            ));
+          },
+          child: AspectRatio(
+            aspectRatio: 1 / 1,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                messageModel.text,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        );
+    }
   }
 }

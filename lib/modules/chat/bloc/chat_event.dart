@@ -16,3 +16,11 @@ class ChatEventSendMessage extends ChatEvent {
 
   final String message;
 }
+
+class ChatEventSendImage extends ChatEvent {
+  const ChatEventSendImage({
+    required this.path,
+  });
+
+  final String path;
+}

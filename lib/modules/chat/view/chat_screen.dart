@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jkb_firebase_chat/modules/chat/bloc/chat_bloc.dart';
+import 'package:jkb_firebase_chat/shared/full_screen_loader.dart';
 
 import 'widgets/messages_list_view.dart';
 import 'widgets/send_message_text_field.dart';
@@ -25,13 +26,13 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<ChatBloc, ChatState>(
       builder: (context, state) {
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(state.receiver.email ?? '-'),
-          ),
-          body: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
+        return FullScreenLoader(
+          isLoading: state.isLoading,
+          child: Scaffold(
+            appBar: AppBar(
+              title: Text(state.receiver.email ?? '-'),
+            ),
+            body: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(

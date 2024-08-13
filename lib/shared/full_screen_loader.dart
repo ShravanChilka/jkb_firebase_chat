@@ -12,18 +12,21 @@ class FullScreenLoader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        child,
-        if (isLoading)
-          Container(
-            constraints: const BoxConstraints.expand(),
-            color: Colors.black.withOpacity(0.6),
-            child: const Center(
-              child: CircularProgressIndicator(),
+    return PopScope(
+      canPop: !isLoading,
+      child: Stack(
+        children: [
+          child,
+          if (isLoading)
+            Container(
+              constraints: const BoxConstraints.expand(),
+              color: Colors.black.withOpacity(0.6),
+              child: const Center(
+                child: CircularProgressIndicator(),
+              ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -24,14 +24,7 @@ class SearchUserListBuilder extends StatelessWidget {
 
             return ListTile(
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => ChatPage(
-                      sender: context.read<AuthBloc>().state.currentUser!,
-                      receiver: user,
-                    ),
-                  ),
-                );
+                Navigator.of(context).pop(user);
               },
               leading: CircleAvatar(
                 child: Center(

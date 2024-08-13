@@ -65,6 +65,7 @@ class RecentChatsBloc extends Bloc<RecentChatsEvent, RecentChatsState> {
     final splitList = chatId.split('_');
     return splitList.firstWhere(
       (item) => item != currentUserId,
+      orElse: () => currentUserId,
     );
   }
 

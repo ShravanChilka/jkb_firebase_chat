@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jkb_firebase_chat/modules/search_user/view/search_user_delegate.dart';
+import 'package:jkb_firebase_chat/modules/search_user/view/widgets/search_user_icon_button.dart';
 import 'package:jkb_firebase_chat/modules/settings/view/settings_screen.dart';
 
 import '../../recent_chats/view/recent_chats_page.dart';
@@ -13,15 +14,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
         actions: [
-          IconButton(
-            onPressed: () {
-              showSearch(
-                context: context,
-                delegate: SearchUserDelegate(),
-              );
-            },
-            icon: const Icon(Icons.search),
-          ),
+          const SearchUserIconButton(),
           PopupMenuButton(
             itemBuilder: (context) => [
               PopupMenuItem(
