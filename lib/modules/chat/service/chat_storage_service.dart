@@ -10,10 +10,9 @@ class ChatStorageService {
     required String chatId,
     required String filePath,
   }) async {
-    final ref = _client
-        .ref(FirebaseStoragePaths.chats)
-        .child(chatId)
-        .child(filePath.split('/').last);
+    final ref = _client.ref(FirebaseStoragePaths.chats).child(chatId).child(
+          '${DateTime.now().millisecondsSinceEpoch}.${filePath.split('.').last}',
+        );
     final uploadTask = ref.putFile(
       File(filePath),
     );

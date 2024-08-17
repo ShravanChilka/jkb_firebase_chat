@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_firebase_chat/modules/auth/bloc/auth_bloc.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/bloc/auth_bloc.dart';
+import 'package:jkb_firebase_chat/modules/auth/phone_auth/view/phone_auth_page.dart';
 import 'package:jkb_firebase_chat/shared/full_screen_loader.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -66,7 +67,15 @@ class _AuthScreenState extends State<AuthScreen> {
                           );
                     },
                     child: const Text('Create Account'),
-                  )
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const PhoneAuthPage(),
+                      ));
+                    },
+                    child: const Text('Sign in phone number'),
+                  ),
                 ],
               ),
             ),

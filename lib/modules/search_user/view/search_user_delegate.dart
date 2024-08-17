@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_firebase_chat/modules/auth/model/user_model.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/model/user_model.dart';
 import 'package:jkb_firebase_chat/modules/search_user/bloc/serch_user_bloc.dart';
 import 'package:jkb_firebase_chat/modules/search_user/view/widgets/search_user_list_builder.dart';
 

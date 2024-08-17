@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:jkb_firebase_chat/modules/auth/model/user_model.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/model/user_model.dart';
 
 class AuthFirebaseService {
   final _client = FirebaseAuth.instance;

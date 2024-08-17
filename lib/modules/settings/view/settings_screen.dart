@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_firebase_chat/modules/auth/bloc/auth_bloc.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/bloc/auth_bloc.dart';
 
 import 'wigets/log_out_button.dart';
 

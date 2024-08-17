@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../auth/bloc/auth_bloc.dart';
+import '../../../auth/email_auth/bloc/auth_bloc.dart';
 
 class LogOutButton extends StatelessWidget {
   const LogOutButton({

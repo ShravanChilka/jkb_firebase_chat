@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_firebase_chat/modules/auth/model/user_model.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/model/user_model.dart';
 import 'package:jkb_firebase_chat/modules/chat/model/message_model.dart';
 import 'package:jkb_firebase_chat/modules/chat/service/chat_firestore_service.dart';
 import 'package:jkb_firebase_chat/modules/chat/service/chat_storage_service.dart';

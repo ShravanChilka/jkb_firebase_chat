@@ -7,7 +7,9 @@
         {
             "name": "jkb_firebase_chat",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "flutterMode": "debug"
+
         },
         {
             "name": "jkb_firebase_chat (profile mode)",

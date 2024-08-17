@@ -2,7 +2,7 @@ import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:jkb_firebase_chat/modules/auth/service/auth_firebase_service.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/service/auth_firebase_service.dart';
 import 'package:jkb_firebase_chat/modules/chat/view/chat_page.dart';
 import 'package:jkb_firebase_chat/modules/recent_chats/bloc/recent_chats_bloc.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jkb_firebase_chat/global_providers.dart';
 
-import 'modules/auth/view/auth_guard.dart';
+import 'modules/auth/email_auth/view/auth_guard.dart';
 
 final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 

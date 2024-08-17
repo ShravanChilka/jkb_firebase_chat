@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_firebase_chat/modules/auth/model/user_model.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/model/user_model.dart';
 import 'package:jkb_firebase_chat/modules/search_user/service/search_user_firestore_service.dart';
 
 part 'search_user_event.dart';

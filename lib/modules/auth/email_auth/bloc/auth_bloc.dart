@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_firebase_chat/modules/auth/model/user_model.dart';
-import 'package:jkb_firebase_chat/modules/auth/service/auth_firebase_service.dart';
-import 'package:jkb_firebase_chat/modules/auth/service/auth_firestore_service.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/model/user_model.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/service/auth_firebase_service.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/service/auth_firestore_service.dart';
 
-import '../../../shared/show_snack_bar.dart';
+import '../../../../shared/show_snack_bar.dart';
 
 part 'auth_state.dart';
 part 'auth_event.dart';

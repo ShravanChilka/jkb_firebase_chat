@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:jkb_firebase_chat/modules/auth/model/user_model.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/model/user_model.dart';
 
 class SearchUserFirestoreService {
   final _client = FirebaseFirestore.instance;

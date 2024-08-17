@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:jkb_firebase_chat/core/utils/firestore_collections.dart';
-import 'package:jkb_firebase_chat/modules/auth/model/user_model.dart';
+import 'package:jkb_firebase_chat/modules/auth/email_auth/model/user_model.dart';
 import 'package:jkb_firebase_chat/modules/chat/model/chat_model.dart';
 import 'package:jkb_firebase_chat/modules/chat/model/message_model.dart';
 import 'package:jkb_firebase_chat/modules/chat/model/recent_chat_model.dart';
